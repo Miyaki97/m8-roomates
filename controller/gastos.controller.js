@@ -1,17 +1,19 @@
-import { roomatesModel } from "../models/roomates.model.js";
+import { gastosModel } from "../models/gatos.model.js";
 
-const unRoomate = async (req, res) => {
-    try {
-        const roomate = await roomatesModel.todos()
-        return res.json(roomate)
 
-    }catch(error){
+const gastosTodos = async (req, res) => {
+    try{
+        const gastos = await gastosModel.todoGastos()
+        return res.json({gastos})
+
+    }catch (error) {
         console.log(error)
-        res.json ({ok: false, error})
-    }
+        res.json({ok: false, error})
+    } 
 }
 
 
-export const roomatesController = {
-    unRoomate,
+
+export const gastosController = {
+    gastosTodos,
 }

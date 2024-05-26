@@ -14,7 +14,7 @@ const unRoomate = async (req, res) => {
     try {
 
         const { id } = req.params
-        const roomate = await roomatesModel.uno()
+        const roomate = await roomatesModel.uno(id)
         return res.json({roomate})
 
     }catch (error) {
@@ -23,8 +23,21 @@ const unRoomate = async (req, res) => {
     }
 }
 
+const agregarRoomate = async (req, res) => {
+    try{
+
+        const roomate = await roomatesModel.agregar()
+        return res.json({roomate})
+
+    }catch(error){
+        console.log(error)
+        res.json({ok: false, error})
+    }
+}
+
 
 export const roomatesController = {
    todosRoomates,
-   unRoomate
+   unRoomate,
+   agregarRoomate
 }
