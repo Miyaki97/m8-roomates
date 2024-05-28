@@ -1,18 +1,22 @@
 import 'dotenv/config';
 import express from 'express';
+import path from 'path';
 import roomatesRouter from './routes/roomates.route.js'
 import gastosRouter from './routes/gastos.route.js'
-import cors from 'cors'; 
+import cors from 'cors'
+
 
 const app = express(); 
 
+const __dirname = import.meta.dirname
+
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(express.static('public'))
 
-app.use('/roomates', roomatesRouter)
+
+app.use('/roommates', roomatesRouter)
 app.use('/gastos', gastosRouter)
-
 
 
 

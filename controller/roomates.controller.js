@@ -1,8 +1,9 @@
-import { roomatesModel } from "../models/roomates.model.js";
+import { roommatesModel } from "../models/roomates.model.js";
 
- const todosRoomates = async(req, res) =>{
+
+ const todosRoommates = async(req, res) =>{
     try {
-        const roommates = await roomatesModel.all();
+        const roommates = await roommatesModel.todos();
         return res.json({roommates});
     } catch (error) {
         console.error(error)
@@ -10,12 +11,12 @@ import { roomatesModel } from "../models/roomates.model.js";
     }
 }
 
-const unRoomate = async (req, res) => {
+const unRoommate = async (req, res) => {
     try {
 
         const { id } = req.params
-        const roomate = await roomatesModel.uno(id)
-        return res.json({roomate})
+        const roommate = await roommatesModel.uno(id)
+        return res.json({roommate})
 
     }catch (error) {
         console.log(error)
@@ -23,11 +24,11 @@ const unRoomate = async (req, res) => {
     }
 }
 
-const agregarRoomate = async (req, res) => {
+const agregarRoommate = async (req, res) => {
     try{
 
-        const roomate = await roomatesModel.agregar()
-        return res.json({roomate})
+        const roommate = await roommatesModel.agregar()
+        return res.json({roommate})
 
     }catch(error){
         console.log(error)
@@ -36,8 +37,8 @@ const agregarRoomate = async (req, res) => {
 }
 
 
-export const roomatesController = {
-   todosRoomates,
-   unRoomate,
-   agregarRoomate
+export const roommatesController = {
+   todosRoommates,
+   unRoommate,
+   agregarRoommate
 }

@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { roomatesController } from "../controller/roomates.controller.js";
+import { roommatesController } from "../controller/roomates.controller.js";
 
 const router = Router()
 
-router.get('/', roomatesController.todosRoomates)
-router.get('/:id', roomatesController.unRoomate)
-router.post('/', roomatesController.agregarRoomate)
+router.get('/', roommatesController.todosRoommates)
+router.get('/:id', roommatesController.unRoommate)
+router.post('/', roommatesController.agregarRoommate)
 
 
 
